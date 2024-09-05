@@ -25,9 +25,9 @@ dropout_p = 0.2       # dropout probability
 
 
 # training parameters
-epochs = 20        # training epochs
+epochs = 12        # training epochs
 batch_size = 50
-learning_rate = 1e-3
+learning_rate = 1e-4
 log_interval = 10   # interval for displaying training info
 
 # save model
@@ -115,7 +115,7 @@ def validation(model, device, optimizer, test_loader):
     all_logvar = np.stack(all_logvar, axis=0)
 
     # show information
-    print('\nTest set ({:d} samples): Average loss: {:.4f}\n'.format(len(test_loader.dataset), test_loss))
+    print('\nTest set ({:d} samples): Average loss: {:.2f}\n'.format(len(test_loader.dataset), test_loss))
     return X_reconst.data.cpu().numpy(), all_y, all_z, all_mu, all_logvar, test_loss
 
 
